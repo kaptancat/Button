@@ -1,0 +1,32 @@
+# Button
+basit grandyan buton tasarımım
+/* CSS Document */
+#button{
+	width: 160px;height: 90px;
+	padding: 15px;
+background: linear-gradient(220deg, black, grey);
+
+	color: aliceblue;
+	border: 3px grey inset;
+	font-size: 20px;
+	font-family:Constantia, "Lucida Bright", "DejaVu Serif", Georgia, "serif";
+	margin-left:770px;margin-top: 90px;
+	border-bottom-left-radius: 10px;
+border-top-right-radius:10px;
+	text-shadow:   1px 1px #000000;
+}
+#button:hover{
+	background: linear-gradient(60deg, black, grey);
+	border: 1px grey inset;
+	cursor: pointer;
+		box-shadow:    1px -1px #444444;
+}
+#button:active{
+	border:5px green solid;
+	background: linear-gradient(320deg, black, grey);
+}
+body{
+	background:url(" img/s-eefbb6085011bc930eb0f76de15980aa53a9d30e.jpg")center center fixed;
+	background-size: cover;
+    background-repeat: no-repeat;
+}
