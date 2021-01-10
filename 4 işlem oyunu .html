@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<!-- saved from url=(0035)http://localhost/JS/JS-lesson1.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>Button | lesson </title>
+
+	<style>
+		body{
+			color: #fff;
+			background-color: #9B292B;
+		}
+		#game{
+			width: 400px;
+			background-color: black;
+			padding: 18px;
+			text-align: center;
+			margin: auto;
+		}
+		h1{
+			margin: 0 0 25px 0;
+			padding: 5px;
+			border: solid 1px #fff;
+			font-weight: 400;
+		}
+		span{
+			padding: 12px;
+			font-size: 125%;
+		}
+		#result{
+			width: 90px;
+		}
+		#answer{
+			margin-top: 18px;
+			padding: 5px;
+			border: none;
+			width: 100px;
+			background-color:#747400;
+			color: #fff;
+		}
+		#answer:hover{
+			background: #15C13E;
+		}
+		
+		#True,#False{
+			font-size:150%;
+			margin-top: 10px;
+			padding: 10px;
+			display: inline-block;
+		}
+		#True{
+			background: #11C130;
+		}
+		#False{
+			background: #D40003;
+		}
+	</style>
+	
+
+</head>
+
+<body>
+
+	<div id="game">
+		<h1>Dört işlem Oyunu</h1>
+	 <span id="Number1">30</span>
+	 <span id="Operator">*</span>
+	 <span id="Number2">27</span>
+		<span>=</span>
+		<input type="text" id="result">
+		<input type="button" id="answer" value="Cevapla">
+		<div style="clear: both"></div>
+		<div id="True">0</div>
+	<div id="False">3</div>
+	<div style="clear: both"></div>
+	
+		
+		
+	</div>
+	<script>
+		//Bildirimler yapılıyor
+		var Number1,Number2,Operator,result,answer,True=0,False=0;
+		//Html nesnelerine ulaşma
+		Number1=document.getElementById('Number1');
+		Number2=document.getElementById('Number2');
+		Operator=document.getElementById('Operator');
+		result=document.getElementById('result');
+		answer=document.getElementById('answer');
+		True=document.getElementById('True');
+		False=document.getElementById('False');
+		//rastgele sayı üretme fonksiyonu
+		function RandomNumber(min,max){
+			var number=Math.floor(Math.random()*(max-min))+min;
+			return number;
+		}
+		//Oyun başlangıcında veya soru tahmini sonrası yeni soru oluşturma fonksiyonu
+		function newQuestion(){
+			var operation=["+","-","*","/"];
+			Operator.textContent=operation[RandomNumber(0,4)];//operatör seçimi
+			Number1.textContent=RandomNumber(0,50);
+			Number2.textContent=RandomNumber(0,50);
+			//kalansız bölme işlemi yapacak koşul
+			if(Operator.textContent=="/"){
+			   while(true){
+				   Number2.textContent=RandomNumber(0,50);
+				   if(Number1.textContent%Number2.textContent==0){
+					   break;
+				   }
+			   }
+			   }
+		}
+		//Sayfa yüklendiğinde yeni soru soran fonksiyon(newQuest) çalıştırır.
+		window.onload=function(){
+			newQuestion();
+		}
+		//cevapla butonuna basıldığında değerlendirme işlemi yapma
+		answer.onclick=function(){
+			var ans,n1,n2;
+			n1=Number(Number1.textContent);
+			n2=Number(Number2.textContent);
+			switch(Operator.textContent){
+				case'+':ans=n1+n2; break; 
+			    case'-':ans=n1-n2;break;
+				case'*':ans=n1*n2;break;
+				case'/':ans=n1/n2;break;
+				default:break;
+			   }
+			if(result.value==ans){
+				True.textContent=Number(True.textContent)+1;
+			}else{
+				False.textContent=Number(False.textContent)+1;
+			}
+			newQuestion();
+		}
+	</script>
+
+
+</body></html>
