@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!-- saved from url=(0036)http://localhost/JS/JS-lesson1.html# -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title id="title"> HTML DOM | JS Lesson 98 </title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+<link href="./Buton yakalama oyunum _files/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+	<style>
+		#obj{
+			width: 110px;
+			height: 110px;
+			position: absolute;
+			background:#8B1416;
+			border: none;
+		}
+	
+	</style>
+</head>
+<body>
+	
+	
+	<div class="container-fluid mt-3">
+		<button type="button" id="obj" style="left: 663px; top: 294px; width: 130px; height: 130px;"></button>
+		
+	</div>
+	
+	<script>
+		var counter=0,obj,xpos,ypos;
+		obj=document.querySelector('#obj')
+			obj.onmouseover=function(){
+				counter++;
+				xpos=parseInt(Math.random()*1000);
+				ypos=parseInt(Math.random()*800);
+				obj.style.left=xpos+"px";
+				obj.style.top=ypos+"px";
+				obj.style.width=this.clientWidth+10+"px";
+				obj.style.height=this.clientHeight+10+"px";
+			}
+				
+			
+			obj.onclick=function(){
+				alert(counter+". seferde yakaladın");
+				obj.style.width="110px";
+				obj.style.height="110px";
+				counter=0;
+			}
+		
+	</script>
+	
+	
+
+	
+	
+
+</body></html>
